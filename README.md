@@ -1,2 +1,2 @@
-# Microsoft-Power-Pages-Cookbook
-Microsoft Power Pages Cookbook, published by Packt
+# Microsoft-Power-Pages-In-Action
+Microsoft Power Pages In Action, published by Packt
