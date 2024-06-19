@@ -59,5 +59,8 @@ With the following software and hardware list you can run all code files present
 
 ## Get to Know the Author
 **Faisal Hussona**
-a seasoned IT professional with over two decades of experience, specializes in developing and implementing technology solutions across diverse industries, with a particular focus on Power Platform and Dynamics 365. Faizal's successful track record includes delivering projects that emphasize promoting citizen developers and facilitating technology transfer. Throughout his 25-year career, Faisal has mentored and trained individuals, transferring knowledge and development skills to various organizations. Faizal's expertise in Power Platform and Dynamics 365 has led to successful projects, particularly in improving business processes and enhancing customer experience.
+Faisal Hussona, a seasoned Software Engineer and Architect with over three decades of experience, specializes in developing and implementing highly automated web-based solutions across diverse industries, with a particular focus on Power Pages and Dataverse. 
+His successful track record includes delivering projects that promote citizen developers and facilitate technology transfer. 
+Throughout his 30-year career, Faisal has mentored and trained numerous developers, including citizen developers, software engineers, and agile teams. 
+His expertise in Power Platform has led to many successful projects, particularly in automating processes and enhancing experiences for businesses, government agencies, and educational institutions.
 
