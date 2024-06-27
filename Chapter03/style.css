@@ -1,0 +1,21 @@
+<style>
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel-item {
+    flex: none;
+    scroll-snap-align: start;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+</style>
