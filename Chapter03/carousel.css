@@ -1,0 +1,34 @@
+
+<style>
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel-item {
+    flex: none;
+    scroll-snap-align: start;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+</style>
+
+<div class="carousel">
+    <div class="carousel-item">
+        <img src="/path/to/your/image1.jpg" alt="Project Image 1" class="carousel-img">
+    </div>
+    <div class="carousel-item">
+        <img src="/path/to/your/image2.jpg" alt="Project Image 2" class="carousel-img">
+    </div>
+    <div class="carousel-item">
+        <img src="/path/to/your/image3.jpg" alt="Project Image 3" class="carousel-img">
+    </div>
+</div>
