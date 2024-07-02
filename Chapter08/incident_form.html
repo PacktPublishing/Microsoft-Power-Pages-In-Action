@@ -1,0 +1,151 @@
+{% block main %}
+  {% include 'Page Copy' %}
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#imc_anyinjuries").change(AnyInjury);
+      $("#imc_anyinjuries").change();
+    });
+
+    function AnyInjury() {
+      var typeVal = ($("#imc_anyinjuries_1").is(":checked"));
+      if (typeVal) {
+        SetFieldAsRequired("imc_injurydescription", "Injury Description");
+      }
+    }
+  </script>
+
+  {% endblock %}
+
+
+<header>
+  <h1>{{ incident.imc_id | default: "Untitled Incident" }}</h1>
+</header>
+
+
+<nav>
+  <ul class="breadcrumbs">
+    {% assign breadcrumbs = page.breadcrumbs %}
+    {% for breadcrumb in breadcrumbs %}
+      <li><a href="{{ breadcrumb.url }}">{{ breadcrumb.label }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+Liquid tags
+
+If Tag
+use the if tag to display different content based on whether 
+a certain field has a value or not:
+
+{% if incident.title %}
+  <h2>{{ incident.title }}</h2>
+{% else %}
+  <h2>No title available</h2>
+{% endif %}
+
+
+for tag
+The for tag enables an iteration over a collection
+
+<ul>
+  {% for related_record in incident.related_records %}
+    <li>{{ related_record.name }}</li>
+  {% endfor %}
+</ul>
+
+
+Capture tag
+The capture tag allows the storage of the output of a block of code into a 
+variable for later use
+
+{% capture description %}
+  {{ incident.description }}
+{% endcapture %}
+
+<p>{{ description }}</p>
+<p>{{ description | truncate: 100 }}</p>
+
+
+case/when tag
+The case/when tag provides a way to handle multiple conditional cases 
+within a single block of code. It follows the syntax {% case variable %}...{% when 
+value %}...{% endcase %}. For example, you can use the case/when tag to display 
+different messages based on the value of a field:
+
+{% case incident.status %}
+{% when 'Open' %}
+  <p>This incident is currently open.</p>
+{% when 'Closed' %}
+  <p>This incident has been closed.</p>
+{% else %}
+  <p>The status of this incident is unknown.</p>
+{% endcase %}
+
+Liquid filters
+
+has_role filter
+The has_role filter is used to manage form behavior, depending on whether a user has a security web 
+role, to identify the type of user:
+
+{% if user.roles | has_role: 'Admin' %}
+  <p>Welcome, Admin!</p>
+{% else %}
+  <p>Welcome, Guest!</p>
+{% endif %}
+
+In this example, the has_role filter is used within an if statement to conditionally display different 
+content based on whether the current user has the 'Admin' role.
+
+Date Filter
+{% assign date = incident.date | date: ‘dd/mm/yy’ %}  
+Dataverse
+Fetch and display a list of data from a Dataverse table using Liquid:
+
+{% assign incidents = entities.imc_incident %}
+<ul>
+  {% for incident in incidents %}
+    <li>{{ incident.title }}</li>
+  {% endfor %}
+</ul>
+
+In this example, the entities.imc_incident variable represents the Dataverse table "imc_incident". By iterating over each incident in the incidents variable, you can access and display 
+specific properties of each incident, such as the title.
+
+iterating over collections
+Iterating over collections, such as arrays or objects with multiple values:
+
+{% assign incidents = incidents_table.records | where: "imc_anyinjuries", true %}
+{% assign incidents_count = incidents.size %}
+<h2>Accident Incidents</h2>
+<p>Total number of Incidents with Injuries: {{ incidents_count }}</p>
+<ul>
+  {% for incident in incidents %}
+    <li>{{ incident.Name }}</li>
+  {% endfor %}
+</ul>
+
+In this example, assume there is a table named incidents_table in Dataverse that contains incident 
+records.
+
+conditional logic
+Liquid provides conditional statements that allow the execution of different blocks of code based on 
+specified conditions. This enables dynamic behavior within a web template. Here’s an example of how 
+to use conditional logic to display content based on a condition using Liquid:
+
+{% if user.is_authenticated %}
+  <p>Welcome, {{ user.display_name }}!</p>
+{% else %}
+  <p>Please sign in to access the content.</p>
+{% endif %}
+
+In this example, the if statement checks whether the user is authenticated. If the user is authenticated, a personalized welcome message is displayed.
+
+Logging output
+Print variable values or specific values within your web template to understand the flow of data, as shown here: 
+
+{% capture debug_output %} 
+{% if condition %}
+  {{ variable }} 
+{% endif %} 
+{% endcapture %}
